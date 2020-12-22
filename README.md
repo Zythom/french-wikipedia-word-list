@@ -8,7 +8,7 @@ cat wikipedia.fr.txt.gz-part0* | gunzip > wikipedia.fr.txt
 
 ---------------------------------------
 
-Voici la liste de commandes utilisées :
+Voici la liste des commandes utilisées :
 
 wget https://dumps.wikimedia.org/frwiki/latest/frwiki-latest-pages-articles-multistream.xml.bz2
 
