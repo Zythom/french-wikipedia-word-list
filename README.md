@@ -1,6 +1,6 @@
 # french-wikipedia-word-list
 
-Pour les besoins d'un projet, il me fallait rapidement une liste de mots français la plus complète possible, avec villes, départements, noms propres, etc. J'ai récupéré un dump de wikipedia, retiré les  caractères supperflus sans modifier le codage utilisé, puis trié les mots.
+Pour les besoins d'un projet, il me fallait rapidement une liste de mots français la plus complète possible, avec villes, départements, noms propres, etc. J'ai récupéré un dump de wikipedia, retiré les  caractères superflus sans modifier le codage utilisé, puis trié les mots.
 Vous trouverez ici le fichier résultant (compressé).
 
 Voici la liste de commandes utilisées :
