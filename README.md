@@ -6,6 +6,7 @@ Vous trouverez ici le fichier résultant (compressé).
 Voici la liste de commandes utilisées :
 
 wget https://dumps.wikimedia.org/frwiki/latest/frwiki-latest-pages-articles-multistream.xml.bz2
+
 (environ 5Go)
 
 bzcat frwiki-latest-pages-articles-multistream.xml.bz2 | tr "\040\041\042\043\044\045\046\047\050\051\052\053\054\056\057\060\061\062\063\064\065\066\067\070\071\072\073\074\075\076\077\100\133\134\135\136\137\140\173\174\175\176" "\n" > toto
@@ -19,11 +20,15 @@ cat toto | tr -s "\n" | sort | uniq > wikipedia.fr.txt
 wc -l wikipedia.fr.txt # la commande indique que le fichier fait 23 260 223 lignes
 
 Avec la commande head, je cherche les premières lignes intéressantes du fichier, puis je supprime les N lignes précédentes
+
 head -n 10500 wikipedia.fr.txt # 
+
 tail -n+10500 wikipedia.fr.txt > toto
 
 Même chose pour la fin du fichier :
+
 tail -n+22481000 toto | more # pour trouver l'endroit où les choses se gâtent
+
 head -n+22481000 toto > wikipedia.fr.txt
 
 rm toto
@@ -31,51 +36,98 @@ rm toto
 Notes : Pour information, voici la table des codes ASCII (en octal) utilisée pour générer le premier fichier toto
 
 Octal Hex Caractère
+
 ----- --- ---------
+
 040 20 SP (Space)
+
 041 21 ! (exclamation mark)
+
 042 22 " (double quote)
+
 043 23 # (number sign)
+
 044 24 $ (dollar sign)
+
 045 25 % (percent)
+
 046 26 & (ampersand)
+
 047 27 ' (single quote)
+
 050 28 ( (left opening parenthesis)
+
 051 29 ) (right closing parenthesis)
+
 052 2A * (asterisk)
+
 053 2B + (plus)
+
 054 2C , (comma)
 
+--------------------------------
+
 056 2E . (dot)
+
 057 2F / (forward slash)
+
 060 30 0
+
 061 31 1
+
 062 32 2
+
 063 33 3
+
 064 34 4
+
 065 35 5
+
 066 36 6
+
 067 37 7
+
 070 38 8
+
 071 39 9
+
 072 3A : (colon)
+
 073 3B ; (semi-colon)
+
 074 3C < (less than sign)
+
 075 3D = (equal sign)
+
 076 3E > (greater than sign)
+
 077 3F ? (question mark)
+
 100 40 @ (AT symbol)
 
+--------------------------------
+
 133 5B [ (left opening bracket)
+
 134 5C \ (back slash)
+
 135 5D ] (right closing bracket)
+
 136 5E ^ (caret cirumflex)
+
 137 5F _ (underscore)
+
 140 60 `
 
+--------------------------------
+
 173 7B { (left opening brace)
+
 174 7C | (vertical bar)
+
 175 7D } (right closing brace)
+
 176 7E ~ (tilde)
+
 
 
