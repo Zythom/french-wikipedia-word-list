@@ -21,13 +21,13 @@ wc -l wikipedia.fr.txt # la commande indique que le fichier fait 23 260 223 lign
 
 Avec la commande head, je cherche les premières lignes intéressantes du fichier, puis je supprime les N lignes précédentes
 
-head -n 10500 wikipedia.fr.txt # 
+head -n 10500 wikipedia.fr.txt # on cherche à tatons N (ici N=10500)
 
 tail -n+10500 wikipedia.fr.txt > toto
 
 Même chose pour la fin du fichier :
 
-tail -n+22481000 toto | more # pour trouver l'endroit où les choses se gâtent
+tail -n+22481000 toto | more # on cherche la ligne N à partir de laquelle les choses se gâtent (ici N=22481000)
 
 head -n+22481000 toto > wikipedia.fr.txt
 
