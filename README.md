@@ -1,7 +1,8 @@
 # french-wikipedia-word-list
 
-Pour les besoins d'un projet, il me fallait rapidement une liste de mots français la plus complète possible, avec villes, départements, noms propres, etc. J'ai récupéré un dump de wikipedia, retiré les  caractères superflus sans modifier le codage utilisé, puis trié les mots.
-Vous trouverez ici le fichier résultant (compressé).
+Pour les besoins d'un projet, il me fallait rapidement une liste de mots français la plus complète possible, avec villes, départements, noms propres, etc. En suiavnt la méthode préconisée par l'IILaR (International Institute of La RACHE https://www.la-rache.com/), j'ai récupéré un dump du wikipedia français, retiré les  caractères superflus sans modifier le codage utilisé, puis trié les mots.
+
+Vous trouverez ici le fichier résultant (297Mo), à reconstituer avec la commande cat wikipedia.fr.txt.gz-part0* | gunzip > wikipedia.fr.txt
 
 Voici la liste de commandes utilisées :
 
@@ -32,6 +33,9 @@ tail -n+22481000 toto | more # on cherche la ligne N à partir de laquelle les c
 head -n+22481000 toto > wikipedia.fr.txt
 
 rm toto
+
+
+
 
 Notes : Pour information, voici la table des codes ASCII (en octal) utilisée pour générer le premier fichier toto
 
