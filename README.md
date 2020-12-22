@@ -121,7 +121,7 @@ Octal Hex Caractère
 
 137 5F _ (underscore)
 
-140 60 `
+140 60 ` (apostrophe du 7)
 
 --------------------------------
 
