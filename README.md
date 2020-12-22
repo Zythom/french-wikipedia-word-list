@@ -16,25 +16,25 @@ bzcat frwiki-latest-pages-articles-multistream.xml.bz2 | tr "\040\041\042\043\04
 
 cat toto | tr -s "\n" | sort | uniq > wikipedia.fr.txt
 
-(cette commande dure environ 1h30, et le fichier wikipedia.fr.txt fait 311Mo)
+(cette commande dure environ 1h30 sur une machine équipée d'un processeur 2CV génération 6, et le fichier wikipedia.fr.txt fait 311Mo. Je n'ose pas imaginer la méthode de tri réalisée par la commande sort, je veux rester encore aux algorithmes improbables que l'on m'a enseignés au millénaire précédent)
 
 wc -l wikipedia.fr.txt # la commande indique que le fichier fait 23 260 223 lignes
 
-Avec la commande head, je cherche les premières lignes intéressantes du fichier, puis je supprime les N lignes précédentes
+Avec la commande head, je cherche les premières lignes "intéressantes" du fichier, puis je supprime les N lignes précédentes (par "intéressantes", je veux dire "non complètement inintéressantes")
 
-head -n 10500 wikipedia.fr.txt # on cherche à tatons N (ici N=10500)
+head -n 10500 wikipedia.fr.txt # on cherche à tatons N (ici N=10500, selon la méthode de l'IILaR)
 
 tail -n+10500 wikipedia.fr.txt > toto
 
 Même chose pour la fin du fichier :
 
-tail -n+22481000 toto | more # on cherche la ligne N à partir de laquelle les choses se gâtent (ici N=22481000)
+tail -n+22481000 toto | more # on cherche la ligne N à partir de laquelle les choses se gâtent (ici N=22481000, selon la même méthode de l'IILaR)
 
 head -n+22481000 toto > wikipedia.fr.txt
 
 rm toto
 
-
+Le fichier wikipedia.fr.txt contient 22 480 556 mots aussi intéressants que "aaaaaaaaaaaaaaaaaaaargh" ou "Barthélémy-Louis-Charles". Amusez-vous bien.
 
 
 Notes : Pour information, voici la table des codes ASCII (en octal) utilisée pour générer le premier fichier toto
