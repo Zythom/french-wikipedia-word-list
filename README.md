@@ -2,7 +2,11 @@
 
 Pour les besoins d'un projet, il me fallait rapidement une liste de mots français la plus complète possible, avec villes, départements, noms propres, etc. En suivant la méthode préconisée par l'IILaR (International Institute of La RACHE https://www.la-rache.com/), j'ai récupéré un dump du wikipedia français, retiré les  caractères superflus sans modifier le codage utilisé, puis trié les mots.
 
-Vous trouverez ici le fichier résultant (297Mo), à reconstituer avec la commande cat wikipedia.fr.txt.gz-part0* | gunzip > wikipedia.fr.txt
+Vous trouverez ici le fichier résultant (297Mo), à reconstituer avec la commande :
+
+cat wikipedia.fr.txt.gz-part0* | gunzip > wikipedia.fr.txt
+
+---------------------------------------
 
 Voici la liste de commandes utilisées :
 
@@ -12,7 +16,7 @@ wget https://dumps.wikimedia.org/frwiki/latest/frwiki-latest-pages-articles-mult
 
 bzcat frwiki-latest-pages-articles-multistream.xml.bz2 | tr "\040\041\042\043\044\045\046\047\050\051\052\053\054\056\057\060\061\062\063\064\065\066\067\070\071\072\073\074\075\076\077\100\133\134\135\136\137\140\173\174\175\176" "\n" > toto
 
-(cette commande dure environ 10mn, et le fichier toto fait environ 21Go)
+(cette commande dure environ 10mn, et le fichier toto fait environ 21Go. Le fichier a été nommé ainsi pour honorer la mémoire des enseignants qui m'ont formé)
 
 cat toto | tr -s "\n" | sort | uniq > wikipedia.fr.txt
 
@@ -33,6 +37,8 @@ tail -n+22481000 toto | more # on cherche la ligne N à partir de laquelle les c
 head -n+22481000 toto > wikipedia.fr.txt
 
 rm toto
+
+split -d -b 20M wikipedia.fr.txt.gz wikipedia.fr.txt.gz-part
 
 Le fichier wikipedia.fr.txt contient 22 480 556 mots aussi intéressants que "aaaaaaaaaaaaaaaaaaaargh" ou "Barthélémy-Louis-Charles". Amusez-vous bien.
 
