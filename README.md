@@ -16,7 +16,7 @@ wget https://dumps.wikimedia.org/frwiki/latest/frwiki-latest-pages-articles-mult
 
 bzcat frwiki-latest-pages-articles-multistream.xml.bz2 | tr "\040\041\042\043\044\045\046\047\050\051\052\053\054\056\057\060\061\062\063\064\065\066\067\070\071\072\073\074\075\076\077\100\133\134\135\136\137\140\173\174\175\176" "\n" > toto
 
-(cette commande dure environ 10mn, et le fichier toto fait environ 21Go. Le fichier a été nommé ainsi pour honorer la mémoire des enseignants qui m'ont formé)
+(cette commande dure environ 10mn, et le fichier toto fait environ 21Go. Le fichier a été nommé ainsi pour honorer la mémoire des enseignants qui m'ont formé. Les codes apparaissant en base octal dans cette commande sont listés en bas de ce readme)
 
 cat toto | tr -s "\n" | sort | uniq > wikipedia.fr.txt
 
@@ -42,6 +42,7 @@ split -d -b 20M wikipedia.fr.txt.gz wikipedia.fr.txt.gz-part
 
 Le fichier wikipedia.fr.txt contient 22 480 556 mots aussi intéressants que "aaaaaaaaaaaaaaaaaaaargh" ou "Barthélémy-Louis-Charles". Amusez-vous bien.
 
+-------------------------------------
 
 Notes : Pour information, voici la table des codes ASCII (en octal) utilisée pour générer le premier fichier toto
 
@@ -127,7 +128,7 @@ Octal Hex Caractère
 
 137 5F _ (underscore)
 
-140 60 ` (apostrophe du 7)
+140 60 ` (apostrophe du 7 ^^)
 
 --------------------------------
 
