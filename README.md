@@ -16,11 +16,11 @@ wget https://dumps.wikimedia.org/frwiki/latest/frwiki-latest-pages-articles-mult
 
 bzcat frwiki-latest-pages-articles-multistream.xml.bz2 | tr "\040\041\042\043\044\045\046\047\050\051\052\053\054\056\057\060\061\062\063\064\065\066\067\070\071\072\073\074\075\076\077\100\133\134\135\136\137\140\173\174\175\176" "\n" > toto
 
-(cette commande dure environ 10mn, et le fichier toto fait environ 21Go. Le fichier a été nommé ainsi pour honorer la mémoire des enseignants qui m'ont formé. Les codes apparaissant en base octal dans cette commande sont listés en bas de ce readme)
+(cette commande dure environ 10mn sur mon PC à processeur 2CV génération 6, et le fichier toto fait environ 21Go. Le fichier a été nommé ainsi pour honorer la mémoire des enseignants qui m'ont formé. Les codes apparaissant en base octale dans cette commande sont listés en bas de ce readme)
 
-cat toto | tr -s "\n" | sort | uniq > wikipedia.fr.txt
+cat toto | tr -s "\n" | awk '!x[$0]++' | sort > wikipedia.fr.txt
 
-(cette commande dure environ 1h30 sur une machine équipée d'un processeur 2CV génération 6, et le fichier wikipedia.fr.txt fait 311Mo. Je n'ose pas imaginer la méthode de tri réalisée par la commande sort, je veux rester encore aux algorithmes improbables que l'on m'a enseignés au millénaire précédent)
+(cette commande dure environ 15mn et le fichier wikipedia.fr.txt fait 311Mo. La commande awk utilisée a été recommandée par https://github.com/TiJof en commentaire et est la cause de la perte de 5% de ma masse cérébrale... Elle replace efficacement la "sort | uniq" utilisée précédemment)
 
 wc -l wikipedia.fr.txt # la commande indique que le fichier fait 23 260 223 lignes
 
