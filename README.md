@@ -20,7 +20,7 @@ bzcat frwiki-latest-pages-articles-multistream.xml.bz2 | tr "\040\041\042\043\04
 
 cat toto | tr -s "\n" | awk '!x[$0]++' | sort > wikipedia.fr.txt
 
-(cette commande dure environ 15mn et le fichier wikipedia.fr.txt fait 311Mo. La commande awk utilisée a été recommandée par https://github.com/TiJof en commentaire et est la cause de la perte de 5% de ma masse cérébrale... Elle remplace efficacement la "sort | uniq" utilisée auparavant)
+(cette commande dure environ 15mn et le fichier wikipedia.fr.txt fait 311Mo. La commande awk utilisée a été recommandée par https://github.com/TiJof en commentaire et est la cause de la perte de 5% de ma masse cérébrale... Elle remplace efficacement la "sort | uniq" utilisée auparavant et qui durait 1h30)
 
 wc -l wikipedia.fr.txt # la commande indique que le fichier fait 23 260 223 lignes
 
