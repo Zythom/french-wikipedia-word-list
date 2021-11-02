@@ -26,7 +26,7 @@ wc -l wikipedia.fr.txt # la commande indique que le fichier fait 24 583 768 lign
 
 Le fichier wikipedia.fr.txt contient des mots aussi intéressants que "aaaaaaaaaaaaaaaaaaaargh" ou "Barthélémy-Louis-Charles".
 
-gzip wikipedia.txt
+gzip wikipedia.fr.txt
 
 split -d -b 20M wikipedia.fr.txt.gz wikipedia.fr.txt.gz-part
 
