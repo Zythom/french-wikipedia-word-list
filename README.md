@@ -23,24 +23,10 @@ cat toto | tr -s "\n" | awk '!x[$0]++' | sort > wikipedia.fr.txt
 (cette commande dure environ 15mn et le fichier wikipedia.fr.txt fait 311Mo. La commande awk utilisée a été recommandée par https://github.com/TiJof en commentaire et est la cause de la perte de 5% de ma masse cérébrale... Elle remplace efficacement la "sort | uniq" utilisée auparavant et qui durait 1h30). Vous trouverez plus d'explications dans ce billet de blog : https://zythom.fr/2020/12/awk-awk-awk/.
 
 wc -l wikipedia.fr.txt # la commande indique que le fichier fait 23 260 223 lignes
+Le fichier wikipedia.fr.txt contient des mots aussi intéressants que "aaaaaaaaaaaaaaaaaaaargh" ou "Barthélémy-Louis-Charles". Amusez-vous bien.
 
-Avec la commande head, je cherche les premières lignes "intéressantes" du fichier, puis je supprime les N lignes précédentes (par "intéressantes", je veux dire "non complètement inintéressantes")
-
-head -n 10500 wikipedia.fr.txt # on cherche à tatons N (ici N=10500, selon la méthode de l'IILaR)
-
-tail -n+10500 wikipedia.fr.txt > toto
-
-Même chose pour la fin du fichier :
-
-tail -n+22481000 toto | more # on cherche la ligne N à partir de laquelle les choses se gâtent (ici N=22481000, selon la même méthode de l'IILaR)
-
-head -n+22481000 toto > wikipedia.fr.txt
-
-rm toto
-
+gzip wikipedia.txt
 split -d -b 20M wikipedia.fr.txt.gz wikipedia.fr.txt.gz-part
-
-Le fichier wikipedia.fr.txt contient 22 480 556 mots aussi intéressants que "aaaaaaaaaaaaaaaaaaaargh" ou "Barthélémy-Louis-Charles". Amusez-vous bien.
 
 -------------------------------------
 
