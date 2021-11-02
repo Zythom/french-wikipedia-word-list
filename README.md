@@ -23,10 +23,14 @@ cat toto | tr -s "\n" | awk '!x[$0]++' | sort > wikipedia.fr.txt
 (cette commande dure environ 15mn et le fichier wikipedia.fr.txt fait 311Mo. La commande awk utilisée a été recommandée par https://github.com/TiJof en commentaire et est la cause de la perte de 5% de ma masse cérébrale... Elle remplace efficacement la "sort | uniq" utilisée auparavant et qui durait 1h30). Vous trouverez plus d'explications dans ce billet de blog : https://zythom.fr/2020/12/awk-awk-awk/.
 
 wc -l wikipedia.fr.txt # la commande indique que le fichier fait 23 260 223 lignes
-Le fichier wikipedia.fr.txt contient des mots aussi intéressants que "aaaaaaaaaaaaaaaaaaaargh" ou "Barthélémy-Louis-Charles". Amusez-vous bien.
+
+Le fichier wikipedia.fr.txt contient des mots aussi intéressants que "aaaaaaaaaaaaaaaaaaaargh" ou "Barthélémy-Louis-Charles".
 
 gzip wikipedia.txt
+
 split -d -b 20M wikipedia.fr.txt.gz wikipedia.fr.txt.gz-part
+
+Amusez-vous bien.
 
 -------------------------------------
 
