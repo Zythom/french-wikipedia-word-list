@@ -2,7 +2,7 @@
 
 Pour les besoins d'un projet, il me fallait rapidement une liste de mots français la plus complète possible, avec villes, départements, noms propres, etc. En suivant la méthode préconisée par l'IILaR (International Institute of La RACHE https://www.la-rache.com/), j'ai récupéré un dump du wikipedia français, retiré les  caractères superflus sans modifier le codage utilisé, puis trié les mots.
 
-Afin d'éviter de surcharger inutilement les sites de Wikipédia, vous trouverez ici le fichier résultant (297Mo), à reconstituer avec la commande :
+Afin d'éviter de surcharger inutilement les sites de Wikipédia, vous trouverez ici le fichier résultant (337Mo), à reconstituer avec la commande :
 
 cat wikipedia.fr.txt.gz-part0* | gunzip > wikipedia.fr.txt
 
